@@ -5,8 +5,8 @@ Minecraft bedrock edition server in a container.
 ## Deployment
 
 ```bash
-docker pull drerik/minecraft-bedrock-server
-docker run -p 19132:19132/udp -p 43432:43432 --name minecraft -d drerik/minecraft-bedrock-server 
+docker pull ghcr.io/drerik/minecraft-bedrock-server:master 
+docker run -p 19132:19132/udp -p 43432:43432 --name minecraft -d ghcr.io/drerik/minecraft-bedrock-server:master
 ```
 
 ## Persistand deployment
@@ -27,16 +27,16 @@ First extract the default server files from the container and create empty folde
 ```bash
 mkdir /srv/minecraft
 cd /srv/minecraft
-sudo docker run -it --rm drerik/minecraft-bedrock-server cat /srv/server.properties | tee server.properties
-sudo docker run -it --rm drerik/minecraft-bedrock-server cat /srv/whitelist.json | tee whitelist.json
-sudo docker run -it --rm drerik/minecraft-bedrock-server cat /srv/permissions.json | tee permissions.json
+sudo docker run -it --rm ghcr.io/drerik/minecraft-bedrock-server:master cat /srv/server.properties | tee server.properties
+sudo docker run -it --rm ghcr.io/drerik/minecraft-bedrock-server:master cat /srv/whitelist.json | tee whitelist.json
+sudo docker run -it --rm ghcr.io/drerik/minecraft-bedrock-server:master cat /srv/permissions.json | tee permissions.json
 mkdir behavior_packs resource_packs worlds
 ```
 
 Then Run the container and mount the files and folders as volumes.
 
 ```bash
-sudo docker pull drerik/minecraft-bedrock-server
+sudo docker pull ghcr.io/drerik/minecraft-bedrock-server:master
 sudo docker run \
     -p 19132:19132/udp \
     -p 43432:43432 \

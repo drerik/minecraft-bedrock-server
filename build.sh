@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t drerik/minecraft-bedrock-server .
+docker build -t ghcr.io/drerik/minecraft-bedrock-server .
